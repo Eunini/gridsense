@@ -1,0 +1,34 @@
+[project]
+name = "gridsense"
+version = "0.1.0"
+description = "Offline-first solar, battery, and grid telemetry with durable ingestion."
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn[standard]>=0.34,<1", "sqlalchemy>=2.0,<2.1",
+  "psycopg[binary]>=3.2,<4", "httpx>=0.28,<1", "paho-mqtt>=2.1,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.12,<1"]
+
+[project.scripts]
+gridsense-edge = "gridsense.edge:main"
+gridsense-mqtt = "gridsense.mqtt:main"
+gridsense-provision = "gridsense.provision:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend/gridsense"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
