@@ -1,0 +1,9 @@
+.git
+.venv
+.env
+**/node_modules
+frontend/dist
+**/__pycache__
+data/runtime
+data/scenarios
+test-results

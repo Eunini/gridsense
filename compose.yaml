@@ -1,0 +1,60 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DATABASE_URL: postgresql+psycopg://gridsense:${POSTGRES_PASSWORD:-gridsense-local-only}@postgres:5432/gridsense
+      DEMO_MODE: ${DEMO_MODE:-true}
+      OPERATOR_TOKEN: ${OPERATOR_TOKEN:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: gridsense
+      POSTGRES_DB: gridsense
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-gridsense-local-only}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gridsense -d gridsense"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    restart: unless-stopped
+  broker:
+    image: eclipse-mosquitto:2
+    profiles: [mqtt]
+    ports:
+      - "127.0.0.1:1883:1883"
+    volumes:
+      - ./infra/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mqtt-data:/mosquitto/data
+    restart: unless-stopped
+  bridge:
+    build: .
+    profiles: [mqtt]
+    command: ["/app/.venv/bin/gridsense-mqtt"]
+    environment:
+      MQTT_HOST: broker
+      GRIDSENSE_URL: http://api:8000
+      DEVICE_ID: inverter-01
+      DEVICE_TOKEN: gridsense-public-demo-inverter
+      MQTT_OUTBOX: /app/data/runtime/mqtt.db
+    volumes:
+      - bridge-data:/app/data/runtime
+    depends_on:
+      api:
+        condition: service_healthy
+      broker:
+        condition: service_started
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+volumes:
+  postgres-data:
+  mqtt-data:
+  bridge-data:
