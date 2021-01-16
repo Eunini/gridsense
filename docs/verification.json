@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-27",
+  "local_checks": {
+    "python_tests_passed": 25,
+    "postgres_integration": "Runs against disposable PostgreSQL in CI; skipped locally",
+    "browser_outbox_tests_passed": 4,
+    "browser_end_to_end_passed": 6,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "mqtt_end_to_end": "Passed against a local MQTT broker and live API",
+    "frontend_production_build": "Passed",
+    "docker_compose": "Validated by the full-stack CI job; local Docker socket unavailable"
+  },
+  "data_source": "Synthetic simulator and replay fixtures"
+}
