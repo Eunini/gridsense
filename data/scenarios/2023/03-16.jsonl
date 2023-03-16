@@ -1,0 +1,8 @@
+{"battery_power_w":-0.0,"battery_soc_pct":40.75,"device_id":"inverter-01","event_id":"7e7f0cea-2792-5ad4-ac43-8fa97d3ad2fc","grid_voltage_v":219.12,"load_w":709.82,"recorded_at":"2023-03-16T00:00:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":39.89,"device_id":"inverter-01","event_id":"15d46282-c44b-53b8-9d06-93266b188838","grid_voltage_v":228.03,"load_w":771.93,"recorded_at":"2023-03-16T00:15:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":39.13,"device_id":"inverter-01","event_id":"49656ab6-f318-568a-be0b-807b73977020","grid_voltage_v":227.63,"load_w":553.86,"recorded_at":"2023-03-16T00:30:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":38.49,"device_id":"inverter-01","event_id":"3c279c7d-fcfd-5a1e-af18-65fa59c1e68f","grid_voltage_v":236.32,"load_w":628.69,"recorded_at":"2023-03-16T00:45:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":37.95,"device_id":"inverter-01","event_id":"82920b36-5ce7-5689-a429-006d7ba97c89","grid_voltage_v":223.89,"load_w":594.8,"recorded_at":"2023-03-16T01:00:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":37.54,"device_id":"inverter-01","event_id":"bb4a4308-0eed-5a9a-a0da-e7fe3123f9b8","grid_voltage_v":235.82,"load_w":565.77,"recorded_at":"2023-03-16T01:15:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":37.24,"device_id":"inverter-01","event_id":"54c7dd6f-30e4-5219-ba51-ded5cd88bad7","grid_voltage_v":233.17,"load_w":690.0,"recorded_at":"2023-03-16T01:30:00Z","solar_w":0.0}
+{"battery_power_w":-0.0,"battery_soc_pct":37.06,"device_id":"inverter-01","event_id":"b1f2d1cc-ebf5-52a8-b5be-939f2723f89f","grid_voltage_v":219.5,"load_w":649.24,"recorded_at":"2023-03-16T01:45:00Z","solar_w":0.0}
