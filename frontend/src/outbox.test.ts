@@ -25,16 +25,14 @@ afterEach(async () => {
   if (rows.length)
     await flushReadings(
       "demo",
-      vi
-        .fn()
-        .mockResolvedValue(
-          new Response(
-            JSON.stringify({
-              accepted: rows.length,
-              event_ids: rows.map((row) => row.event_id),
-            }),
-          ),
+      vi.fn().mockResolvedValue(
+        new Response(
+          JSON.stringify({
+            accepted: rows.length,
+            event_ids: rows.map((row) => row.event_id),
+          }),
         ),
+      ),
     );
 });
 
