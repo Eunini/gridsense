@@ -1,8 +1,8 @@
 # GridSense
 
-**Energy monitoring that keeps working through unreliable power and connectivity.**
+Solar, battery, and grid telemetry with offline collection and replay.
 
-GridSense tracks grid voltage, solar production, electricity consumption, and battery reserve. A durable device outbox retains observations during network failures; the API accepts safe, idempotent replay when connectivity returns.
+GridSense records grid voltage, solar production, consumption, and battery reserve. Devices retain observations in a local outbox during network failures. The API accepts delayed batches and identifies duplicate or conflicting events by UUID.
 
 This is a runnable reference implementation. Its demo readings and replay fixtures are **synthetic**, not field measurements. The 2021–2023 commit dates are a documented reconstruction created in October 2026 for a contribution-calendar exercise; they do not represent work performed in those years. See [provenance](docs/provenance.json).
 
